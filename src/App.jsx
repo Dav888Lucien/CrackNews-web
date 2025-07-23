@@ -1,42 +1,31 @@
-import { Button } from '@/shadcn/ui/button.jsx';
-import { useEffect, useState } from 'react';
-import NewsCard from './components/NewsCard';
-import newsData from './fakeData/newsData';
-import api from '@/utils/axios.js';
+// src/App.js
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidebar from '@/components/SideBar.jsx';
+import ForYou from '@/pages/ForYou.jsx';
+import Explore from '@/pages/Explore.jsx';
+import Channels from '@/pages/Channels.jsx';
+import NotFound from '@/pages/NotFound.jsx';
 
 function App() {
-  const [currentNews, setCurrentNews] = useState(null);
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const result = await api.get('/users');
-      setUsers(result.data);
-      setCurrentNews(newsData[0]);
-    };
-    fetchUsers();
-  }, []);
-
-  const handleClick = async () => {
-    await api.post('/users', {
-      name: 'new user',
-      id: Date.now(),
-    });
-  };
   return (
-    <>
-      <div className="min-h-screen bg-white text-black">
-        {currentNews ? (
-          <NewsCard news={currentNews} />
-        ) : (
-          <p className="text-center mt-10">Loading...</p>
-        )}
-      </div>
+    <BrowserRouter>
+      <div className="flex">
+        {/* Sidebar is always visible */}
+        <Sidebar />
 
-      {/* <p className="text-blue-600">{JSON.stringify(users)}</p>
-      <Button onClick={handleClick} className="bg-gray-400">
-        add new user
-      </Button> */}
-    </>
+        <main className="flex-1 overflow-scroll">
+          <Routes>
+            <Route path="/for-you" element={<ForYou />} />
+            <Route path="/channels" element={<Channels />} />
+            <Route path="/explore" element={<Explore />} />
+
+            {/*404 page*/}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
