@@ -10,11 +10,11 @@ import NotFound from '@/pages/NotFound.jsx';
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex">
+      <div className="flex h-screen overflow-hidden">
         {/* Sidebar is always visible */}
         <Sidebar />
 
-        <main className="flex-1 overflow-scroll">
+        <main className="flex-1 overflow-auto mx-3">
           <Routes>
             <Route path="/for-you" element={<ForYou />} />
             <Route path="/channels" element={<Channels />} />

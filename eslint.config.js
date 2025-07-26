@@ -73,6 +73,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'import/namespace': 'off',
       'import/no-named-as-default': 'off',
+      'semi': [2, 'always'],
 
       // Enforce single quotes (and allow templates / avoid escape)
       quotes: [

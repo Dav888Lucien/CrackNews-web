@@ -11,6 +11,7 @@
     "fake-server": "npx json-server --watch db.json --port 3000"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react-dom": "^19.1.6",

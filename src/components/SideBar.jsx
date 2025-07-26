@@ -1,24 +1,16 @@
 // src/components/Sidebar.jsx
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false)
-  const toggleCollapsed = () => setCollapsed(prev => !prev)
+  const [collapsed, setCollapsed] = useState(false);
+  const toggleCollapsed = () => setCollapsed(prev => !prev);
 
-  const linkBase       = 'block px-3 py-2 rounded-none'
-  const activeStyles   = 'bg-[#302c2c] text-white'
-  const inactiveStyles = 'text-black hover:bg-gray-200 border-t border-gray-300'
+  const linkBase       = 'block px-3 py-2 rounded-none';
+  const activeStyles   = 'bg-[#302c2c] text-white';
+  const inactiveStyles = 'text-black hover:bg-gray-200 border-t border-gray-300';
+  const arrowStyles = 'bg-[#f8f4f4] border border-gray-300 p-1 focus:outline-none transition-all duration-300 rounded hover:bg-gray-200';
 
-  const arrowStyles = `
-    bg-[#f8f4f4]
-    border border-gray-300
-    p-1
-    focus:outline-none
-    transition-all duration-300
-    rounded
-    hover:bg-gray-200
-  `
 
   return (
     <>
@@ -135,7 +127,7 @@ const Sidebar = () => {
         </button>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
